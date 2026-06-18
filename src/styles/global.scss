@@ -13,23 +13,25 @@ a {
 }
 
 .main {
-  font-family: "Inter", sans-serif;
-  background-color: $main-bg;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 0% 0%, rgba(250, 204, 21, 0.06), transparent 55%),
+    $main-bg;
   color: $main-color;
-  min-height: 100vh; /* Ensure the height fills the viewport */
+  min-height: 100vh;
 }
 
 .container {
   display: flex;
-  width: 100vw; /* Full width of the viewport */
-  max-width: 1920px; /* Set a max-width to prevent content from being too wide */
-  margin: 0 auto; /* Center the content */
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .menuContainer {
   width: 250px;
   padding: 5px 20px;
-  border-right: 2px solid $soft-bg;
+  border-right: 1px solid $border;
 
   @include lg {
     width: max-content;
@@ -38,16 +40,62 @@ a {
 
 .contentContainer {
   padding: 5px 20px;
-  width: calc(100% - 250px); /* Adjust to account for the menu container width */
+  width: calc(100% - 250px);
+}
+
+// Section / page headings — blue text with a yellow accent bar
+.title,
+.contentContainer h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+// Primary action buttons (e.g. "Add New Athlete")
+.contentContainer .info button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  background: $primary;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.05s, box-shadow 0.18s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+
+  &:hover {
+    background: $accent;
+    color: $dark-color;
+    box-shadow: 0 4px 16px rgba(250, 204, 21, 0.35);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// Modern scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $dark-bg;
+}
+::-webkit-scrollbar-thumb {
+  background: $soft-bg;
+  border-radius: 6px;
+  border: 2px solid $dark-bg;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $primary;
 }
 
 @media (min-width: 1920px) {
   .menuContainer {
-    width: 300px; /* Increase menu width for large screens */
+    width: 300px;
   }
-  
   .contentContainer {
-    width: calc(100% - 300px); /* Adjust content width accordingly */
-    padding: 20px 40px; /* Increase padding for larger screens */
+    width: calc(100% - 300px);
+    padding: 20px 40px;
   }
 }

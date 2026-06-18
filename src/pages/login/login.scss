@@ -98,13 +98,52 @@
       }
     }
 
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0 14px;
+      color: #6b7689;
+      font-size: 12px;
+
+      &::before,
+      &::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .guestBtn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #facc15;
+      background: transparent;
+      color: #facc15;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+
+      &:hover:not(:disabled) {
+        background: #facc15;
+        color: #0d121e;
+      }
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
     .demo {
-      margin-top: 20px;
+      margin-top: 18px;
       font-size: 12px;
       color: #a0a8b8;
 
       strong {
-        color: #cdd4e3;
+        color: #facc15;
       }
     }
   }

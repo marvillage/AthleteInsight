@@ -193,7 +193,7 @@ export const topDealUsers = [
 ];
 
 export const chartBoxUser = {
-  color: "#8884d8",
+  color: "#3b82f6",
   icon: "/heart.svg",
   title: "Heart Rate",
   number: "88 bpm",
@@ -297,7 +297,7 @@ export const chartBoxConv = {
 };
 export const barChartBoxRevenue = {
   title: "Calories Burned (in kcal)",
-  color: "#8884d8",
+  color: "#3b82f6",
   dataKey: "calories",
   chartData: [
     { name: "Sun", calories: 2200 },
@@ -312,7 +312,7 @@ export const barChartBoxRevenue = {
 
 export const barChartBoxRev = {
   title: "Hydration Levels",
-  color: "#8884d8",
+  color: "#3b82f6",
   dataKey: "hydration",
   chartData: [
      { name: "Sun", hydration: 2.3 },
@@ -697,7 +697,7 @@ export const singleUser = {
   chart: {
     dataKeys: [
       { name: "trainingSessions", color: "#82ca9d" },
-      { name: "goalsAchieved", color: "#8884d8" },
+      { name: "goalsAchieved", color: "#3b82f6" },
     ],
     data: [
       {
@@ -779,7 +779,7 @@ export const singleProduct = {
   chart: {
     dataKeys: [
       { name: "visits", color: "#82ca9d" },
-      { name: "orders", color: "#8884d8" },
+      { name: "orders", color: "#3b82f6" },
     ],
     data: [
       {

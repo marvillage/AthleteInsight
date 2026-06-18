@@ -1,8 +1,21 @@
-// BG
-$main-bg: #2a3447;
-$soft-bg: #384256;
-$dark-bg: #222b3c;
-//TEXT
-$main-color: white;
-$soft-color: #ddd;
-$dark-color: #2a3447;
+// ===== AthleteInsight theme — modern navy-blue + yellow =====
+
+// Backgrounds (deep professional navy)
+$main-bg: #0f172a;
+$soft-bg: #1e293b;
+$dark-bg: #0b1220;
+$card-bg: #16223c;
+
+// Text
+$main-color: #f1f5f9;
+$soft-color: #94a3b8;
+$dark-color: #0f172a;
+
+// Brand accents
+$primary: #3b82f6; // blue
+$primary-dark: #2563eb;
+$accent: #facc15; // yellow
+$accent-dark: #eab308;
+
+// Lines / surfaces
+$border: rgba(96, 165, 250, 0.16);

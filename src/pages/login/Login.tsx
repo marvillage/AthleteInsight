@@ -27,6 +27,17 @@ const Login = () => {
     else navigate("/", { replace: true });
   };
 
+  // One-click guest access — signs in with the seeded demo account so the
+  // dashboard (and its row-level-secured data) works with no typing.
+  const handleGuest = async () => {
+    setError(null);
+    setLoading(true);
+    const { error } = await signIn("demo@athleteinsight.app", "demo12345");
+    setLoading(false);
+    if (error) setError(error);
+    else navigate("/", { replace: true });
+  };
+
   return (
     <div className="login">
       <div className="loginCard">
@@ -64,8 +75,21 @@ const Login = () => {
           </button>
         </form>
 
+        <div className="divider">
+          <span>or</span>
+        </div>
+
+        <button
+          type="button"
+          className="guestBtn"
+          onClick={handleGuest}
+          disabled={loading || !isSupabaseConfigured}
+        >
+          Continue as Guest (Demo)
+        </button>
+
         <p className="demo">
-          Demo account: <strong>demo@athleteinsight.app</strong> / <strong>demo12345</strong>
+          Guest mode signs you in as <strong>demo@athleteinsight.app</strong>
         </p>
       </div>
     </div>

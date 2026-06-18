@@ -1,28 +1,91 @@
-.dataTable{
+@import "../../styles/variables.scss";
 
-  .dataGrid{
-    background: white;
-    padding: 20px;
+.dataTable {
+  .dataGrid {
+    background: linear-gradient(180deg, $card-bg, $soft-bg);
+    padding: 16px;
+    border: 1px solid $border;
+    border-radius: 14px;
+    color: $main-color;
 
-    .MuiDataGrid-toolbarContainer{
-      flex-direction: row-reverse;
+    // ----- MUI DataGrid dark theme overrides -----
+    &.MuiDataGrid-root {
+      border: none;
+      --DataGrid-rowBorderColor: #{$border};
     }
 
-    img{
+    .MuiDataGrid-columnHeaders,
+    .MuiDataGrid-columnHeader {
+      background: $dark-bg;
+      color: $accent;
+    }
+    .MuiDataGrid-columnHeaderTitle {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .MuiDataGrid-cell {
+      border-color: $border;
+      color: $main-color;
+    }
+    .MuiDataGrid-row:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+    .MuiDataGrid-footerContainer {
+      border-top: 1px solid $border;
+    }
+    .MuiTablePagination-root,
+    .MuiTablePagination-selectIcon,
+    .MuiDataGrid-menuIconButton,
+    .MuiDataGrid-sortIcon,
+    .MuiDataGrid-filterIcon,
+    .MuiSvgIcon-root {
+      color: $soft-color;
+    }
+    .MuiCheckbox-root.Mui-checked .MuiSvgIcon-root {
+      color: $primary;
+    }
+    // Toolbar (search + buttons)
+    .MuiDataGrid-toolbarContainer {
+      flex-direction: row-reverse;
+      gap: 8px;
+      padding-bottom: 12px;
+
+      .MuiButton-root {
+        color: $primary;
+      }
+      .MuiInputBase-root {
+        color: $main-color;
+        &::before {
+          border-bottom-color: $border;
+        }
+      }
+      .MuiInputBase-input::placeholder {
+        color: $soft-color;
+      }
+    }
+
+    img {
       width: 32px;
       height: 32px;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    .action{
+    .action {
       display: flex;
       gap: 15px;
 
-      img{
+      img {
         width: 20px;
         height: 20px;
         cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.15s, transform 0.15s;
+
+        &:hover {
+          opacity: 1;
+          transform: scale(1.15);
+        }
       }
     }
   }
