@@ -1,6 +1,8 @@
 import "./navbar.scss";
+import { useAuth } from "../../auth/AuthContext";
 
 const Navbar = () => {
+  const { session, signOut } = useAuth();
   return (
     <div className="navbar">
       <div className="logo">
@@ -16,13 +18,17 @@ const Navbar = () => {
           <span>1</span>
         </div>
         <div className="user">
-        <img
-  src="https://www.jioinstitute.edu.in/sites/default/files/styles/webp/public/article/WhatsApp%20Image%202023-06-20%20at%207.37.52%20PM.jpeg.webp?itok=a-fUcHbY"
-  alt="tg"
-/>
-          <span>Amlan Borgohain</span>
+          <img src="/noavatar.png" alt="" />
+          <span>{session?.user?.email ?? "Moderator"}</span>
         </div>
-        <img src="/settings.svg" alt="" className="icon" />
+        <img
+          src="/log.svg"
+          alt="Sign out"
+          className="icon"
+          title="Sign out"
+          style={{ cursor: "pointer" }}
+          onClick={() => signOut()}
+        />
       </div>
     </div>
   );

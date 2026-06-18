@@ -5,7 +5,8 @@ import {
 } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteAthlete } from "../../lib/athletes";
 
 type Props = {
   columns: GridColDef[];
@@ -14,24 +15,20 @@ type Props = {
 };
 
 const DataTable = (props: Props) => {
+  const queryClient = useQueryClient();
 
-  // TEST THE API
+  const mutation = useMutation({
+    mutationFn: (id: string) => deleteAthlete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["athletes"] });
+      queryClient.invalidateQueries({ queryKey: ["athlete-stats"] });
+    },
+  });
 
-  // const queryClient = useQueryClient();
-  // // const mutation = useMutation({
-  // //   mutationFn: (id: number) => {
-  // //     return fetch(`http://localhost:8800/api/${props.slug}/${id}`, {
-  // //       method: "delete",
-  // //     });
-  // //   },
-  // //   onSuccess: ()=>{
-  // //     queryClient.invalidateQueries([`all${props.slug}`]);
-  // //   }
-  // // });
-
-  const handleDelete = (id: number) => {
-    //delete the item
-    // mutation.mutate(id)
+  const handleDelete = (id: string) => {
+    if (confirm("Remove this athlete from monitoring?")) {
+      mutation.mutate(id);
+    }
   };
 
   const actionColumn: GridColDef = {

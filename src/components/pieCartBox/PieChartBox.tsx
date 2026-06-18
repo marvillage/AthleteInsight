@@ -1,23 +1,21 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./pieChartBox.scss";
-
-const data = [
-  { name: "Training Intensity", value: 40, color: "#0088FE" },
-  { name: "Recovery", value: 30, color: "#00C49F" },
-  { name: "Hydration", value: 20, color: "#FFBB28" },
-  { name: "Sleep Quality", value: 10, color: "#FF8042" },
-];
+import { useQuery } from "@tanstack/react-query";
+import { fetchStats } from "../../lib/athletes";
 
 const PieChartBox = () => {
+  const { data: stats } = useQuery({ queryKey: ["athlete-stats"], queryFn: fetchStats });
+
+  const data = (stats?.statusDistribution ?? []).filter((d) => d.value > 0);
+  const total = data.reduce((s, d) => s + d.value, 0) || 1;
+
   return (
     <div className="pieChartBox">
-      <h1>Athlete Performance Distribution</h1>
+      <h1>Athlete Status Distribution</h1>
       <div className="chart">
         <ResponsiveContainer width="99%" height={300}>
           <PieChart>
-            <Tooltip
-              contentStyle={{ background: "white", borderRadius: "5px" }}
-            />
+            <Tooltip contentStyle={{ background: "white", borderRadius: "5px" }} />
             <Pie
               data={data}
               innerRadius={"70%"}
@@ -39,7 +37,7 @@ const PieChartBox = () => {
               <div className="dot" style={{ backgroundColor: item.color }} />
               <span>{item.name}</span>
             </div>
-            <span>{item.value}%</span>
+            <span>{Math.round((item.value / total) * 100)}%</span>
           </div>
         ))}
       </div>
@@ -48,4 +46,3 @@ const PieChartBox = () => {
 };
 
 export default PieChartBox;
-

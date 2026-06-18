@@ -1,7 +1,5 @@
-import { useState } from "react";
 import "./Products.scss";
 import DataTable from "../../components/dataTable/DataTable";
-import Add from "../../components/add/Add";
 import { GridColDef } from "@mui/x-data-grid";
 import { products } from "../../data";
 
@@ -86,33 +84,12 @@ const columns: GridColDef[] = [
 ];
 
 const Products = () => {
-  const [open, setOpen] = useState(false);
-
-  // TEST THE API
-
-  // const { isLoading, data } = useQuery({
-  //   queryKey: ["allproducts"],
-  //   queryFn: () =>
-  //     fetch("http://localhost:8800/api/products").then(
-  //       (res) => res.json()
-  //     ),
-  // });
-
   return (
     <div className="products">
       <div className="info">
-        <h1>Chats</h1>
-        <button onClick={() => setOpen(true)}>Add New Chat</button>
+        <h1>Confidential Chats</h1>
       </div>
       <DataTable slug="products" columns={columns} rows={products} />
-      {/* TEST THE API */}
-
-      {/* {isLoading ? (
-        "Loading..."
-      ) : (
-        <DataTable slug="products" columns={columns} rows={data} />
-      )} */}
-      {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
     </div>
   );
 };

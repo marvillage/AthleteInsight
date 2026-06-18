@@ -8,7 +8,6 @@ import {
   YAxis,
 } from "recharts";
 import "./single.scss";
-import { colors } from "@mui/material";
 
 type Props = {
   id: number;
