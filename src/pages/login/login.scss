@@ -1,9 +1,12 @@
 .login {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at top, #2a3447 0%, #151c2c 60%, #0d121e 100%);
+  background: radial-gradient(1000px 500px at 80% -10%, rgba(59, 130, 246, 0.18), transparent 60%),
+    radial-gradient(800px 400px at 10% 110%, rgba(250, 204, 21, 0.1), transparent 55%),
+    linear-gradient(180deg, #131c2f 0%, #0d121e 100%);
   padding: 20px;
 
   .loginCard {
@@ -24,7 +27,10 @@
 
     h1 {
       font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 4px;
+      color: #f1f5f9;
     }
 
     .subtitle {
