@@ -14,6 +14,7 @@ import Login from "./pages/login/Login";
 import "./styles/global.scss";
 import User from "./pages/user/User";
 import Product from "./pages/product/Product";
+import FeaturePage from "./pages/feature/FeaturePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider, useAuth } from "./auth/AuthContext";
 import { isSupabaseConfigured } from "./lib/supabase";
@@ -73,6 +74,7 @@ function App() {
         { path: "/products", element: <Products /> },
         { path: "/users/:id", element: <User /> },
         { path: "/products/:id", element: <Product /> },
+        { path: "/feature/:slug", element: <FeaturePage /> },
       ],
     },
     { path: "/login", element: <Login /> },

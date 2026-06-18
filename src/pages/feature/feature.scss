@@ -1,0 +1,100 @@
+@import "../../styles/variables.scss";
+
+.feature {
+  .title {
+    font-size: 26px;
+    font-weight: 700;
+    border-left: 4px solid $accent;
+    padding-left: 12px;
+  }
+
+  .subtitle {
+    color: $soft-color;
+    margin: 8px 0 24px 16px;
+    font-size: 14px;
+  }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
+    .kpi {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, $card-bg, $soft-bg);
+      border: 1px solid $border;
+      border-left: 4px solid $primary;
+
+      .kpiValue {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .kpiLabel {
+        font-size: 12px;
+        color: $soft-color;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      &.tone-blue {
+        border-left-color: $primary;
+      }
+      &.tone-yellow {
+        border-left-color: $accent;
+      }
+      &.tone-green {
+        border-left-color: #22c55e;
+      }
+      &.tone-red {
+        border-left-color: #f97316;
+      }
+    }
+  }
+
+  .tableCard {
+    background: linear-gradient(180deg, $card-bg, $soft-bg);
+    border: 1px solid $border;
+    border-radius: 14px;
+    padding: 20px 22px;
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+
+      th {
+        text-align: left;
+        color: $accent;
+        font-weight: 700;
+        padding: 10px 12px;
+        border-bottom: 1px solid $border;
+        white-space: nowrap;
+      }
+      td {
+        padding: 12px;
+        color: $main-color;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      }
+      tr:hover td {
+        background: rgba(59, 130, 246, 0.08);
+      }
+    }
+  }
+}
